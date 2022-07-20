@@ -5,9 +5,7 @@ validParentheses = (parens) => {
       ')': -1
     };
     
-    for (let i = 0; i < parens.length && count >= 0; i++) {
-      let currChar = parens.charAt(i);
-      count += charValues[currChar];
-    }
+    [...parens].forEach(c => count >= 0 ? count += charValues[c] : count)
+    
     return count === 0;
   }
